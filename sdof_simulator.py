@@ -24,11 +24,7 @@ force = []
 
 # time-stepping solution
 for t in time:
-	if t <= 15:
-		F[0] = F0 * np.cos(omega*t)
-	else:
-		F[0] = 0.0
-
+	F[0] = F0 * np.cos(omega*t)
 	y = y + delta_t * inv(A).dot( F - B.dot(y) )
 	Y.append(y[1])
 	force.append(F[0])
@@ -52,7 +48,7 @@ plt.show()
 
 print 'Critical Damping:', np.sqrt( (-c**2 + 4*m*k) / (2.0 * m) )
 print 'Natural Frequency:', np.sqrt(k/m)
-
+ 
 
 
 
